@@ -1,0 +1,105 @@
+---
+---
+
+<div id="cookie-banner" class="cookie-banner">
+    <div class="auto-container">
+        <div class="inner-box">
+            <div class="text">
+                <p>Utilizamos cookies para garantizar que disfrutes de la mejor experiencia en Matizes. Al continuar, aceptas nuestra <a href="/privacy">Política de Privacidad</a>.</p>
+            </div>
+            <div class="btn-box">
+                <button id="accept-cookies" class="theme-btn-one">Aceptar</button>
+                <button id="decline-cookies" class="theme-btn-two">Rechazar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script is:inline>
+    (function() {
+        const banner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('accept-cookies');
+        const declineBtn = document.getElementById('decline-cookies');
+
+        if (!localStorage.getItem('cookies-accepted')) {
+            banner.classList.add('show');
+        }
+
+        acceptBtn.addEventListener('click', () => {
+            localStorage.setItem('cookies-accepted', 'true');
+            banner.classList.remove('show');
+        });
+
+        declineBtn.addEventListener('click', () => {
+            banner.classList.remove('show');
+        });
+    })();
+</script>
+
+<style>
+    .cookie-banner {
+        position: fixed;
+        bottom: -100px;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
+        z-index: 10000;
+        padding: 20px 0;
+        transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        border-top: 2px solid #ff9da0;
+    }
+
+    .cookie-banner.show {
+        bottom: 0;
+    }
+
+    .cookie-banner .inner-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+    }
+
+    .cookie-banner .text p {
+        margin: 0;
+        color: #012924;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 600;
+        font-size: 15px;
+    }
+
+    .cookie-banner .text a {
+        color: #7fc3b0;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    .cookie-banner .btn-box {
+        display: flex;
+        gap: 15px;
+    }
+
+    .cookie-banner .theme-btn-one {
+        padding: 8px 25px;
+        font-size: 14px;
+        background: #ff9da0 !important;
+        border-color: #ff9da0 !important;
+    }
+
+    .cookie-banner .theme-btn-two {
+        padding: 8px 25px;
+        font-size: 14px;
+        border-color: #7fc3b0 !important;
+        color: #7fc3b0 !important;
+    }
+
+    @media (max-width: 768px) {
+        .cookie-banner .inner-box {
+            flex-direction: column;
+            text-align: center;
+            gap: 20px;
+        }
+    }
+</style>

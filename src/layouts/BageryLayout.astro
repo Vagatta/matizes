@@ -1,0 +1,524 @@
+---
+import SocialIcons from '../components/SocialIcons.astro';
+import MatizesHeader from '../components/MatizesHeader.astro';
+import MatizesFooter from '../components/MatizesFooter.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+
+const { title = 'Matizes' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+		<title>{title}</title>
+
+		<link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+
+		<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
+
+		<link href="/assets/css/font-awesome-all.css" rel="stylesheet" />
+		<link href="/assets/css/flaticon.css" rel="stylesheet" />
+		<link href="/assets/css/owl.css" rel="stylesheet" />
+		<link href="/assets/css/bootstrap.css" rel="stylesheet" />
+		<link href="/assets/css/jquery.fancybox.min.css" rel="stylesheet" />
+		<link href="/assets/css/animate.css" rel="stylesheet" />
+		<link href="/assets/css/color.css" rel="stylesheet" />
+		<link href="/assets/css/nice-select.css" rel="stylesheet" />
+		<link href="/assets/css/global.css" rel="stylesheet" />
+		<link href="/assets/css/style.css" rel="stylesheet" />
+		<link href="/assets/css/responsive.css" rel="stylesheet" />
+
+		<style>
+			:root {
+				--_typography---text--text-letter-spacing: 0em;
+
+				--_colors---core-accent-color--accent-primary: #ff9da0;
+				--_colors---core-accent-color--accent-primary-hover: #ff7478;
+				--_colors---core-accent-color--accent-secondary: #7fc3b0;
+				--_colors---core-accent-color--accent-tertiary: #f8fcd4;
+
+				--_colors---core-neutral-color--neutral-primary: #ffffff;
+				--_colors---core-neutral-color--neutral-secondary: #f7f9f2;
+				--_colors---core-neutral-color--neutral-inverse: #012924;
+
+				--_colors---background-color--bg-secondary: var(--_colors---core-neutral-color--neutral-secondary);
+				--_colors---background-color--bg-accent-primary: var(--_colors---core-accent-color--accent-primary);
+				--_colors---background-color--bg-accent-secondary: var(--_colors---core-accent-color--accent-secondary);
+				--_colors---background-color--bg-accent-tertiary: var(--_colors---core-accent-color--accent-tertiary);
+				--_colors---background-color--bg-inverse: var(--_colors---core-neutral-color--neutral-inverse);
+
+				--_colors---text-color--text-on-accent-primary: #012924;
+				--_colors---text-color--text-on-accent-secondary: #012924;
+				--_colors---text-color--text-on-accent-tertiary: #012924;
+				--_colors---text-color--text-inverse-primary: var(--_colors---core-neutral-color--neutral-primary);
+
+				--_sizes---container--container-width: 1280px;
+				--_sizes---container--container-lg-width: 1440px;
+				--_sizes---container--container-sm-width: 1000px;
+				--_sizes---spacing--1x: 1rem;
+				--_sizes---spacing--1-25x: 1.25rem;
+				--_sizes---spacing--8x: 6rem;
+				--_sizes---container--container-padding-horizontal: var(--_sizes---spacing--1x);
+				--_sizes---section--section-padding-vertical: var(--_sizes---spacing--8x);
+
+				--matizes-primary: var(--_colors---core-accent-color--accent-primary);
+				--matizes-primary-hover: var(--_colors---core-accent-color--accent-primary-hover);
+				--matizes-secondary: var(--_colors---core-accent-color--accent-secondary);
+				--matizes-tertiary: var(--_colors---core-accent-color--accent-tertiary);
+				--matizes-dark: var(--_colors---core-neutral-color--neutral-inverse);
+				--matizes-bg-secondary: var(--_colors---background-color--bg-secondary);
+			}
+
+			.loader-wrap {
+				display: none;
+			}
+
+			body {
+				color: var(--matizes-dark);
+				letter-spacing: var(--_typography---text--text-letter-spacing);
+				background: var(--matizes-bg-secondary);
+				overflow-x: hidden;
+			}
+
+			a {
+				color: var(--matizes-primary);
+			}
+			a:hover {
+				color: var(--matizes-primary-hover);
+			}
+
+			.auto-container {
+				max-width: var(--_sizes---container--container-width);
+				padding-left: var(--_sizes---container--container-padding-horizontal);
+				padding-right: var(--_sizes---container--container-padding-horizontal);
+			}
+
+			.scroll-top {
+				background: var(--matizes-primary);
+			}
+
+			.theme-btn-one,
+			.theme-btn-two:before,
+			.theme-btn-two:after,
+			.preloader-close {
+				background: var(--matizes-primary);
+			}
+
+			.theme-btn-one {
+				color: var(--_colors---text-color--text-on-accent-primary);
+			}
+
+			.theme-btn-one:before,
+			.theme-btn-one:after {
+				background: var(--matizes-primary-hover);
+			}
+
+			.theme-btn-one:hover {
+				color: var(--_colors---text-color--text-on-accent-primary);
+			}
+
+			.theme-btn-two:hover {
+				border-color: var(--matizes-primary);
+				color: var(--_colors---text-color--text-on-accent-primary);
+			}
+
+			.shop-block-one .inner-box .lower-content h3 a:hover,
+			.service-block-one .inner-box .lower-content h3 a:hover,
+			.news-block-one .inner-box .lower-content h3 a:hover,
+			.footer-bottom .copyright p a,
+			.footer-bottom .footer-nav li a:hover {
+				color: var(--matizes-primary);
+			}
+
+			.news-block-one .inner-box .image-box .category,
+			.coffee-menu-one .inner-box .icon-box .price {
+				background: var(--matizes-secondary);
+			}
+
+			.testimonial-section:before {
+				background: var(--matizes-tertiary);
+			}
+
+			.scroll-top,
+			.preloader-close,
+			.sticky-header,
+			.theme-btn-one,
+			.theme-btn-two:before,
+			.theme-btn-two:after,
+			.service-block-one .inner-box:hover .lower-content .btn-box a,
+			.project-block-one .inner-box .lower-content .view-btn a,
+			.project-block-two .inner-box .lower-content .view-btn a,
+			.video-section .video-inner .video-btn a,
+			.range-slider .ui-slider .ui-slider-range,
+			.range-slider .ui-state-default,
+			.range-slider .ui-widget-content .ui-state-default,
+			.range-slider .filter-btn:hover,
+			.pagination li a:hover,
+			.pagination li a.active,
+			.blog-sidebar .search-widget .search-form .form-group button,
+			.blog-sidebar .post-widget .post .post-thumb,
+			.blog-details-content .post-share-option .social-links li a:hover,
+			.team-block-one .inner-box .image-box .social-links li a:hover,
+			.contact-section .contact-info-inner .single-box .social-links li a:hover {
+				background: var(--matizes-primary) !important;
+			}
+
+			.main-menu .navigation > li > ul > li > a:hover,
+			.main-menu .navigation > li > .megamenu li > a:hover,
+			.main-menu .navigation > li > ul > li > ul > li > a:hover,
+			.main-menu .navigation > li > ul > li:hover > a,
+			.main-menu .navigation > li > .megamenu li:hover > a,
+			.main-header .sticky-header .main-menu .navigation > li ul li a:hover,
+			.shop-block-one .inner-box .lower-content h3 a:hover,
+			.service-block-one .inner-box .lower-content h3 a:hover,
+			.news-block-one .inner-box .lower-content h3 a:hover,
+			.news-block-one .inner-box .lower-content .post-info li a:hover,
+			.product-sidebar .sidebar-content .single-box .item-name .bye-btn a:hover,
+			.product-sidebar .sidebar-content .single-box .item-name h6 a:hover,
+			.contact-section .contact-info-inner .single-box .list li a:hover,
+			.footer-top .contact-widget .widget-content .info-list li a:hover,
+			.footer-top .links-widget .links-list li a:hover,
+			.footer-style-two .footer-widget ul li a:hover,
+			.default-sidebar .sidebar-categories .categories-list li a:hover,
+			.blog-sidebar .post-widget .post h5 a:hover,
+			.blog-sidebar .sidebar-archives .archives-list li a:hover,
+			.blog-post .post-inner .post-info li a:hover,
+			.blog-details-content blockquote i,
+			.blog-details-content .two-column .text .list li i,
+			.blog-details-content .comment-box .comment .comment-inner a:hover,
+			.error-section .inner-box p a,
+			.footer-bottom .copyright p a,
+			.footer-bottom .footer-nav li a:hover {
+				color: var(--matizes-primary) !important;
+			}
+
+			.theme-btn-two:hover {
+				border-color: var(--matizes-primary) !important;
+			}
+
+			.default-form .form-group input:focus,
+			.default-form .form-group textarea:focus,
+			.main-footer .subscribe-inner .subscribe-form .form-group input:focus,
+			.shop-sidebar .sidebar-search .form-group input:focus,
+			.blog-sidebar .search-widget .search-form .form-group input:focus,
+			.blog-details-content .comments-form-area .form-group input:focus,
+			.blog-details-content .comments-form-area .form-group textarea:focus,
+			.single-product .product-discription .tabs-content .customer-comments .comment-form .form-group input:focus,
+			.single-product .product-discription .tabs-content .customer-comments .comment-form .form-group textarea:focus,
+			.cart-section .othre-content .coupon-box input:focus,
+			.checkout-section .billing-form .form-group input:focus {
+				border-color: var(--matizes-primary) !important;
+			}
+
+			/* Sitewide Theme: Hide legacy UI and show branded UI */
+			.main-header:not(.matizes-header),
+			.main-footer:not(.matizes-footer),
+			.loader-wrap,
+			.product-sidebar,
+			.xs-sidebar-group,
+			.banner-section {
+				display: none !important;
+			}
+		</style>
+	</head>
+	<body>
+		<SocialIcons />
+		<MatizesHeader />
+		<slot />
+		<MatizesFooter />
+		<CookieBanner />
+
+		<script is:inline>
+			(function () {
+				const dict = [
+					[
+						'Excepteur sint occaecat cupidat non proident sunt in culpa qui officia deserunt mollit anim est laborum. magni dolores eos ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non aliquam quaerat voluptatem.',
+						'En Matizes cuidamos cada detalle: pastelería artesanal y café de especialidad, con una propuesta moderna, llena de color y dulzura.',
+					],
+					[
+						'Excepteur sint occaecat cupidat non proident sunt in culpa qui officia deserunt mollit anim est laborum. magni dolores eos ratione voluptatem sequi nesciunt.',
+						'En Matizes celebramos lo artesanal: helados cremosos, bollería recién hecha y café de especialidad para disfrutar sin prisa.',
+					],
+					[
+						'Lorem ipsum dolor sit amet consectetur adipis elit eiusmod tempor incidunt sed labore dolore magna aliquaenim elit minim quis nost exercitation laboris aliquip.',
+						'En Matizes encontrarás helados artesanales, bollería recién hecha y café de especialidad. Elige tu favorito y date un capricho.',
+					],
+					['BAGERY', 'MATIZES'],
+					['Bagery', 'Matizes'],
+					['bagery', 'matizes'],
+					[
+						'Accusan enim ipsam voluptam quia voluptas sit aspern odit aut sed quia consequnt.',
+						'Nuestra propuesta combina creatividad y sabor: recetas propias, ingredientes de temporada y un toque muy nuestro.',
+					],
+					[
+						'Accusan enim ipsam voluptam quia voluptas sit aspern odit aut sed quia consequnt magni dolores eos qui ratione voluptatem.sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.',
+						'Nuestra historia nace de la pasión por lo artesanal: ingredientes de temporada, recetas propias y un espacio pensado para disfrutar sin prisa.',
+					],
+					[
+						'Excepteur sint occaecat cupidat non sunt culpa qui officia deserunt mollit anim est laborum.',
+						'Creaciones artesanales con ingredientes de calidad y mucho mimo.',
+					],
+					['Home', 'Inicio'],
+					['Shop', 'Tienda'],
+					['Pages', 'Páginas'],
+					['Elements', 'Elementos'],
+					['Blog', 'Blog'],
+					['Contact', 'Contacto'],
+					['Our Story', 'Nuestra historia'],
+					['Traditional & Modern Service', 'Tradición y servicio moderno'],
+					['Since 1970', 'Desde 1970'],
+					['Bakery', 'Matizes'],
+					['Pastry Cake', 'Pastelería'],
+					['Confectionery', 'Confitería'],
+					['About Matizes', 'Sobre Matizes'],
+					['Matizes Overview', 'Matizes en un vistazo'],
+					['Ratione voluptatem.sequi nesciunt.', 'Ingredientes de temporada y recetas propias.'],
+					['Ratione voluptatem.', 'Elaboración artesanal cada día.'],
+					['Ratione voluptatem sequi.', 'Un espacio moderno para disfrutar.'],
+					['Our Shop', 'Nuestra tienda'],
+					['Our Menu', 'Nuestro menú'],
+					['Services', 'Servicios'],
+					['Read More', 'Ver más'],
+					['Add to cart', 'Añadir al carrito'],
+					['Checkout', 'Pagar'],
+					['Cart', 'Carrito'],
+					['Search', 'Buscar'],
+					['Error Page', 'Página de error'],
+					['Opening hours', 'Horario'],
+					['Daily: 9.30 AM–6.00 PM', 'De lunes a sábado: 9:30–18:00'],
+					['Sunday & Holidays: Closed', 'Domingos y festivos: Cerrado'],
+					['Contact Info', 'Información de contacto'],
+					['Contacto info', 'Información de contacto'],
+					['77408 Satterfield Motorway Suite 469 New Antonetta, BC K3L6P6', 'C/ Matizes 12, 28000 Madrid'],
+					['example@info.com', 'hola@matizes.com'],
+					['(617) 495-9400-326', '+34 600 123 456'],
+					['Social contact', 'Síguenos'],
+					['Our all Delicious', 'Nuestros productos más'],
+					['Our all Delicious ', 'Nuestros productos más '],
+					['Products.', 'deliciosos.'],
+					['Vanilla Ice Cream', 'Helado de vainilla'],
+					['Slice Super Cake', 'Tarta casera'],
+					['Cone Ice Cream', 'Helado en cono'],
+					['Quality Ice Cream', 'Helado premium'],
+					['About Us', 'Sobre Matizes'],
+					['Our Services', 'Nuestros servicios'],
+					['Our Team', 'Nuestro equipo'],
+					['Testimonials', 'Reseñas'],
+					["Faq's", 'Preguntas frecuentes'],
+					['FAQ', 'Preguntas frecuentes'],
+					['Quick links', 'Enlaces rápidos'],
+					['Company History', 'Nuestra historia'],
+					['Contact Us', 'Contacto'],
+					['Buy Now', 'Pedir'],
+					['Bye Now', 'Pedir'],
+					['Subscribe Now', 'Suscribirme'],
+					['Your email', 'Tu email'],
+					['Your email ', 'Tu email '],
+					['Search....', 'Buscar...'],
+					['Search.... ', 'Buscar... '],
+					['Search....', 'Buscar...'],
+					['Search...', 'Buscar...'],
+					['Terms of Service', 'Términos del servicio'],
+					['Privacy Policy', 'Política de privacidad'],
+					['All Right Reserved', 'Todos los derechos reservados'],
+					['Read More', 'Ver más'],
+					['Blog Details', 'Detalle del blog'],
+					['Blog Grid', 'Blog (cuadrícula)'],
+					['Blog Masonry', 'Blog (mosaico)'],
+					['Blog Standard', 'Blog'],
+					['Leave a Reply', 'Deja tu comentario'],
+					['Leave a reply', 'Deja tu comentario'],
+					['Reply', 'Responder'],
+					['Name', 'Nombre'],
+					['Email', 'Email'],
+					['Phone', 'Teléfono'],
+					['Subject', 'Asunto'],
+					['Message', 'Mensaje'],
+					['Get In Touch', 'Hablemos'],
+					['Get in Touch', 'Hablemos'],
+					['Get in touch', 'Hablemos'],
+					['Contact with us', 'Contacta con Matizes'],
+					['Contact With Us', 'Contacta con Matizes'],
+					['Send Message', 'Enviar mensaje'],
+					['Send message', 'Enviar mensaje'],
+					['Your Name', 'Tu nombre'],
+					['Your Email', 'Tu email'],
+					['Your email', 'Tu email'],
+					['Your Message', 'Tu mensaje'],
+					['Your message', 'Tu mensaje'],
+					['Write a message', 'Escribe tu mensaje'],
+					['Write Message', 'Escribe tu mensaje'],
+					['Submit Now', 'Enviar'],
+					['Submit now', 'Enviar'],
+					['Address', 'Dirección'],
+					['Phone Number', 'Teléfono'],
+					['Email Address', 'Email'],
+					['Website', 'Web'],
+					['Follow', 'Seguir'],
+					['Follow:', 'Síguenos:'],
+					['Follow :', 'Síguenos:'],
+					['Follow us', 'Síguenos'],
+					['Follow Us', 'Síguenos'],
+					['Social', 'Social'],
+					['Social contact', 'Síguenos'],
+					['Contact Info', 'Información de contacto'],
+					['Contact info', 'Información de contacto'],
+					['Send Message', 'Enviar mensaje'],
+					['Submit', 'Enviar'],
+					['Shop Details', 'Detalle del producto'],
+					['Shop details', 'Detalle del producto'],
+					['Shop Page', 'Tienda'],
+					['Shop page', 'Tienda'],
+					['Our Shop', 'Nuestra tienda'],
+					['Our Menu', 'Nuestra carta'],
+					['Menu', 'Carta'],
+					['Categories', 'Categorías'],
+					['Category', 'Categoría'],
+					['Popular', 'Popular'],
+					['Popular Tags', 'Etiquetas populares'],
+					['Tags', 'Etiquetas'],
+					['Filter', 'Filtrar'],
+					['Filter by price', 'Filtrar por precio'],
+					['Price', 'Precio'],
+					['Min', 'Mín.'],
+					['Max', 'Máx.'],
+					['Sort by', 'Ordenar por'],
+					['Default sorting', 'Orden por defecto'],
+					['Showing', 'Mostrando'],
+					['Result', 'Resultado'],
+					['Results', 'Resultados'],
+					['View', 'Ver'],
+					['View all', 'Ver todo'],
+					['Monday', 'Lunes'],
+					['Tuesday', 'Martes'],
+					['Wednesday', 'Miércoles'],
+					['Thursday', 'Jueves'],
+					['Friday', 'Viernes'],
+					['Saturday', 'Sábado'],
+					['Saterday', 'Sábado'],
+					['Sunday', 'Domingo'],
+					['Closed', 'Cerrado'],
+					['Opening hours', 'Horario'],
+					['Open', 'Abierto'],
+					['Close', 'Cerrar'],
+				];
+
+				function replaceText(root, from, to) {
+					if (from === to) return;
+					const SHOW_TEXT = (globalThis.NodeFilter && globalThis.NodeFilter.SHOW_TEXT) ? globalThis.NodeFilter.SHOW_TEXT : 4;
+					const walker = document.createTreeWalker(root, SHOW_TEXT);
+					let node;
+					while ((node = walker.nextNode())) {
+						if (node.nodeValue && node.nodeValue.includes(from)) {
+							// Avoid double replacement if the word is already translated
+							// or if the replacement would create the same word
+							if (node.nodeValue.trim() === to) continue;
+							
+							// Use regex with word boundaries for short strings to avoid partial hits like Contact -> Contacto
+							const escapedFrom = from.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+							const regex = new RegExp('\\b' + escapedFrom + '\\b', 'g');
+							
+							if (regex.test(node.nodeValue)) {
+								node.nodeValue = node.nodeValue.replace(regex, to);
+							} else if (from.length > 10) {
+								// For longer sentences, still use simple split/join but only if not already translated
+								node.nodeValue = node.nodeValue.split(from).join(to);
+							}
+						}
+					}
+				}
+
+				function dedupeHeader(root) {
+					const navbars = root.querySelectorAll('#navbarSupportedContent');
+					for (let i = 1; i < navbars.length; i++) {
+						navbars[i].remove();
+					}
+
+					const dropdownLis = root.querySelectorAll('li.dropdown');
+					for (const li of dropdownLis) {
+						const btns = li.querySelectorAll('.dropdown-btn');
+						for (let i = 1; i < btns.length; i++) {
+							btns[i].remove();
+						}
+					}
+				}
+
+				function patchShopViewLinks(root) {
+					const links = root.querySelectorAll('.shop-page-section .item-shorting .right-column .menu-box a');
+					for (const a of links) {
+						const href = (a.getAttribute('href') || '').trim();
+						if (href === '/shop' || href === 'shop.html' || href === '/shop.html') {
+							a.setAttribute('href', '#');
+							a.addEventListener('click', (e) => e.preventDefault());
+						}
+					}
+				}
+
+				function simplifyNavigation(root) {
+					const allowed = new Set(['/', '/shop-1', '/our-menu', '/about', '/contact']);
+					const navLists = root.querySelectorAll('ul.navigation');
+
+					for (const ul of navLists) {
+						const items = Array.from(ul.children).filter((el) => el && el.tagName === 'LI');
+						for (const li of items) {
+							const a = Array.from(li.children).find((el) => el && el.tagName === 'A');
+							const href = (a?.getAttribute('href') || '').trim();
+							if (!allowed.has(href)) {
+								li.remove();
+								continue;
+							}
+
+							const submenu = Array.from(li.children).find((el) => el && el.tagName === 'UL');
+							if (submenu) submenu.remove();
+
+							li.classList.remove('dropdown');
+							const btns = li.querySelectorAll('.dropdown-btn');
+							btns.forEach((b) => b.remove());
+						}
+					}
+				}
+
+				function run() {
+					try {
+						const root = document.body;
+						dedupeHeader(root);
+						patchShopViewLinks(root);
+						simplifyNavigation(root);
+						const sorted = dict.slice().sort((a, b) => (b[0]?.length ?? 0) - (a[0]?.length ?? 0));
+						for (const [from, to] of sorted) replaceText(root, from, to);
+						globalThis.__matizes_i18n = { applied: true };
+					} catch (e) {
+						globalThis.__matizes_i18n = { applied: false, error: String(e) };
+					}
+				}
+
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', run);
+				} else {
+					run();
+				}
+
+				globalThis.addEventListener('load', run);
+			})();
+		</script>
+
+		<script is:inline src="/assets/js/jquery.js"></script>
+		<script is:inline src="/assets/js/popper.min.js"></script>
+		<script is:inline src="/assets/js/bootstrap.min.js"></script>
+		<script is:inline src="/assets/js/owl.js"></script>
+		<script is:inline src="/assets/js/wow.js"></script>
+		<script is:inline src="/assets/js/validation.js"></script>
+		<script is:inline src="/assets/js/jquery.fancybox.js"></script>
+		<script is:inline src="/assets/js/appear.js"></script>
+		<script is:inline src="/assets/js/jquery.countTo.js"></script>
+		<script is:inline src="/assets/js/scrollbar.js"></script>
+		<script is:inline src="/assets/js/jquery.nice-select.min.js"></script>
+		<script is:inline src="/assets/js/nav-tool.js"></script>
+		<script is:inline src="/assets/js/script.js"></script>
+	</body>
+</html>

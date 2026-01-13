@@ -1,0 +1,353 @@
+---
+import heroImage from '../assets/images/hero/matizes_hero_v3.png';
+---
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+<section class="matizes-hero full-bleed">
+  <div class="hero-bg" style={`background-image: url(${heroImage.src});`}></div>
+  
+  <div id="text-canvas-container"></div>
+
+  <div class="hero-content">
+    <div class="text-wrapper">
+      <h1 class="hero-title hidden-placeholder" id="hero-title">
+        Dulzura que Crea <br /> Momentos Únicos
+      </h1>
+      <p class="hero-subtitle" id="hero-subtitle">
+        Pastelería artesanal y café de especialidad en un entorno diseñado para inspirar.
+      </p>
+      <div class="hero-actions" id="hero-actions">
+        <a href="/our-menu" class="btn-matizes pistachio">Ver Menú</a>
+        <a href="/contact" class="btn-matizes pink">Visítanos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style is:global>
+  /* Remove template distractions as requested */
+  .main-header, .sticky-header, .banner-section, .loader-wrap {
+    display: none !important;
+  }
+
+  .full-bleed {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+</style>
+
+<style>
+  .matizes-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #f7f9f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    transform: scale(1.1);
+  }
+
+  #text-canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 20;
+    text-align: center;
+    color: white;
+    max-width: 1100px;
+    padding: 0 20px;
+    pointer-events: none;
+  }
+
+  .hero-content > * {
+    pointer-events: auto;
+  }
+
+  .hero-title {
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    font-family: 'Pacifico', cursive;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    visibility: hidden; /* Rendered in Three.js */
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    margin-bottom: 2.5rem;
+    color: #435b57;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .btn-matizes {
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    font-family: 'Rubik', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+  }
+
+  .btn-matizes.pistachio {
+    background: #7fc3b0;
+    color: #012924;
+  }
+
+  .btn-matizes.pink {
+    background: #ff9da0;
+    color: #012924;
+  }
+
+  .btn-matizes:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+
+  @media (max-width: 768px) {
+    .btn-matizes {
+      padding: 0.8rem 1.8rem;
+      font-size: 0.75rem;
+    }
+    .hero-actions {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+</style>
+
+<script>
+  import * as THREE from 'three';
+  import { gsap } from 'gsap';
+
+  class MeltingTextHero {
+    constructor() {
+      this.container = document.getElementById('text-canvas-container');
+      if (!this.container) return;
+
+      this.scene = new THREE.Scene();
+      this.width = window.innerWidth;
+      this.height = window.innerHeight;
+      
+      this.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+      this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      this.renderer.setSize(this.width, this.height);
+      this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      this.container.appendChild(this.renderer.domElement);
+
+      this.mouse = new THREE.Vector2(-9, -9);
+      this.targetMouse = new THREE.Vector2(-9, -9);
+      
+      this.init();
+    }
+
+    async init() {
+      const textTexture = this.createTextTexture();
+      
+      this.material = new THREE.ShaderMaterial({
+        transparent: true,
+        uniforms: {
+          uTime: { value: 0 },
+          uTexture: { value: textTexture },
+          uMouse: { value: this.mouse },
+          uResolution: { value: new THREE.Vector2(this.width, this.height) },
+          uProgress: { value: 0 }
+        },
+        vertexShader: `
+          varying vec2 vUv;
+          void main() {
+            vUv = uv;
+            gl_Position = vec4(position, 1.0);
+          }
+        `,
+        fragmentShader: `
+          varying vec2 vUv;
+          uniform sampler2D uTexture;
+          uniform float uTime;
+          uniform vec2 uMouse;
+          uniform vec2 uResolution;
+          uniform float uProgress;
+
+          void main() {
+            vec2 uv = vUv;
+            
+            vec2 aspectMouse = uMouse * vec2(uResolution.x / uResolution.y, 1.0);
+            vec2 aspectUv = uv * vec2(uResolution.x / uResolution.y, 1.0);
+            
+            float dist = distance(aspectUv, aspectMouse);
+            float strength = smoothstep(0.18, 0.0, dist);
+            
+            vec4 texColor = texture2D(uTexture, uv);
+            
+            if (texColor.a > 0.0) {
+                float distortion = sin(uv.x * 60.0 + uTime * 3.0) * 0.003 * strength;
+                uv.y -= strength * 0.06 + distortion;
+                uv.x += sin(uTime * 4.0 + uv.y * 120.0) * 0.006 * strength;
+            }
+
+            float mask = smoothstep(uProgress - 0.15, uProgress, uv.x);
+            
+            vec4 finalColor = texture2D(uTexture, uv);
+            finalColor.a *= (1.0 - mask);
+
+            if (finalColor.a > 0.1) {
+                float highlight = smoothstep(0.14, 0.0, dist) * 0.35;
+                finalColor.rgb += highlight;
+            }
+
+            gl_FragColor = finalColor;
+          }
+        `
+      });
+
+      const geometry = new THREE.PlaneGeometry(2, 2);
+      this.mesh = new THREE.Mesh(geometry, this.material);
+      this.scene.add(this.mesh);
+
+      this.setupEvents();
+      this.animate();
+      this.entrance();
+    }
+
+    createTextTexture() {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      const scale = 2;
+      canvas.width = this.width * scale;
+      canvas.height = this.height * scale;
+      
+      ctx.scale(scale, scale);
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      
+      const fontSize = Math.min(this.width * 0.1, 130);
+      ctx.font = `${fontSize}px "Pacifico"`;
+
+      const lines = ["Dulzura que Crea", "Momentos Únicos"];
+      const x = this.width / 2;
+      const yStart = this.height / 2 - (lines.length * fontSize * 0.6) / 2 - 20;
+
+      lines.forEach((line, i) => {
+        const y = yStart + i * fontSize * 1.2;
+        
+        ctx.shadowColor = 'rgba(0,0,0,0.1)';
+        ctx.shadowBlur = 10;
+        ctx.shadowOffsetY = 10;
+        
+        const gradient = ctx.createLinearGradient(x, y - fontSize/2, x, y + fontSize/2);
+        
+        if (i === 1 || line.includes("Dulzura")) {
+            gradient.addColorStop(0, "#ffb6b9");
+            gradient.addColorStop(1, "#ff9da0");
+        } else {
+            gradient.addColorStop(0, "#98d8c6");
+            gradient.addColorStop(1, "#7fc3b0");
+        }
+
+        ctx.fillStyle = gradient;
+        ctx.fillText(line, x, y);
+
+        ctx.shadowBlur = 0;
+        ctx.shadowOffsetY = 0;
+        ctx.strokeStyle = 'rgba(255,255,255,0.4)';
+        ctx.lineWidth = 2;
+        ctx.strokeText(line, x - 1, y - 1);
+      });
+
+      const texture = new THREE.CanvasTexture(canvas);
+      texture.minFilter = THREE.LinearFilter;
+      texture.magFilter = THREE.LinearFilter;
+      return texture;
+    }
+
+    setupEvents() {
+      window.addEventListener('mousemove', (e) => {
+        this.targetMouse.x = (e.clientX / window.innerWidth);
+        this.targetMouse.y = 1 - (e.clientY / window.innerHeight);
+      });
+
+      window.addEventListener('resize', () => {
+        this.width = window.innerWidth;
+        this.height = window.innerHeight;
+        this.renderer.setSize(this.width, this.height);
+        this.material.uniforms.uTexture.value = this.createTextTexture();
+        this.material.uniforms.uResolution.value.set(this.width, this.height);
+      });
+    }
+
+    animate() {
+      requestAnimationFrame(this.animate.bind(this));
+      this.material.uniforms.uTime.value = performance.now() * 0.001;
+      
+      this.mouse.x += (this.targetMouse.x - this.mouse.x) * 0.05;
+      this.mouse.y += (this.targetMouse.y - this.mouse.y) * 0.05;
+      
+      this.renderer.render(this.scene, this.camera);
+    }
+
+    entrance() {
+      const tl = gsap.timeline({ defaults: { ease: "none" }});
+      
+      tl.to(this.material.uniforms.uProgress, {
+        value: 1.2,
+        duration: 4,
+        ease: "none"
+      });
+
+      gsap.to(".hero-bg", {
+        scale: 1,
+        duration: 5,
+        ease: "power2.out"
+      });
+
+      gsap.from("#hero-subtitle, #hero-actions", {
+        y: 20,
+        opacity: 0,
+        duration: 1.5,
+        stagger: 0.2,
+        delay: 2.5,
+        ease: "power3.out"
+      });
+    }
+  }
+
+  document.fonts.ready.then(() => {
+    new MeltingTextHero();
+  });
+</script>

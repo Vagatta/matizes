@@ -1,0 +1,124 @@
+---
+---
+
+<div class="matizes-social-sidebar">
+  <div class="social-item cart-anchor">
+    <a href="/cart" class="social-link">
+      <i class="fas fa-shopping-basket"></i>
+      <span class="tooltip">Ver Carrito</span>
+    </a>
+  </div>
+  <div class="social-item">
+    <a href="https://instagram.com/matizes" target="_blank" class="social-link pink">
+      <i class="fab fa-instagram"></i>
+      <span class="tooltip">Instagram</span>
+    </a>
+  </div>
+  <div class="social-item">
+    <a href="https://facebook.com/matizes" target="_blank" class="social-link pistachio">
+      <i class="fab fa-facebook-f"></i>
+      <span class="tooltip">Facebook</span>
+    </a>
+  </div>
+  <div class="social-item">
+    <a href="https://wa.me/matizes" target="_blank" class="social-link pink">
+      <i class="fab fa-whatsapp"></i>
+      <span class="tooltip">WhatsApp</span>
+    </a>
+  </div>
+</div>
+
+<style>
+  .matizes-social-sidebar {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 9999;
+  }
+
+  .social-item {
+    position: relative;
+  }
+
+  .social-link {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #435b57;
+    font-size: 1.2rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  }
+
+  .social-link.pink {
+    background: rgba(255, 157, 160, 0.15);
+    border-color: rgba(255, 157, 160, 0.3);
+  }
+
+  .social-link.pistachio {
+    background: rgba(127, 195, 176, 0.15);
+    border-color: rgba(127, 195, 176, 0.3);
+  }
+
+  .social-link:hover {
+    transform: scale(1.15);
+    background: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .social-link.pink:hover {
+    color: #ff9da0;
+    box-shadow: 0 10px 25px rgba(255, 157, 160, 0.3);
+  }
+
+  .social-link.pistachio:hover {
+    color: #7fc3b0;
+    box-shadow: 0 10px 25px rgba(127, 195, 176, 0.3);
+  }
+
+  .tooltip {
+    position: absolute;
+    right: calc(100% + 15px);
+    top: 50%;
+    transform: translateY(-50%) translateX(10px);
+    background: #012924;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .social-item:hover .tooltip {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+
+  @media (max-width: 768px) {
+    .matizes-social-sidebar {
+      right: 10px;
+      gap: 10px;
+    }
+    .social-link {
+      width: 40px;
+      height: 40px;
+      font-size: 1rem;
+    }
+  }
+</style>

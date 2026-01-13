@@ -1,0 +1,209 @@
+---
+const {
+	headline = 'Dulzura creativa, sabor que inspira',
+	subhead = 'Helados artesanales, bollería recién hecha y café con estilo propio. Todo en un mismo lugar: Matizes.',
+	primaryHref,
+	primaryLabel,
+	secondaryHref = '/shop-1',
+	secondaryLabel = 'Ver la tienda',
+	mockupImageSrc = '/assets/images/banner/banner-image-1.png',
+	bgImageSrc = '/assets/images/banner/banner-1.jpg',
+} = Astro.props;
+---
+
+<section class="mockup-hero" style={`--bg:url(${bgImageSrc});`}>
+	<div class="container">
+		<div class="copy" data-aos="fade-up" data-aos-delay="50">
+			<p class="eyebrow" data-aos="fade-right" data-aos-delay="100">Matizes</p>
+			<h1 class="title" id="gsap-title">{headline}</h1>
+			<p class="lead" id="gsap-lead">{subhead}</p>
+			<div class="cta" data-aos="fade-up" data-aos-delay="150">
+				{primaryHref && primaryLabel ? (
+					<a class="btn primary" href={primaryHref}>{primaryLabel}</a>
+				) : null}
+				<a class="btn ghost" href={secondaryHref}>{secondaryLabel}</a>
+			</div>
+			<div class="stats" data-aos="fade-up" data-aos-delay="200">
+				<div class="stat"><span class="num">Artesanal</span><span class="lbl">cada día</span></div>
+				<div class="stat"><span class="num">Café</span><span class="lbl">de especialidad</span></div>
+				<div class="stat"><span class="num">Helado</span><span class="lbl">con topping</span></div>
+			</div>
+		</div>
+
+		<div class="visual" data-aos="zoom-in" data-aos-delay="150">
+			<div class="mockup" id="gsap-mockup">
+				<div class="mockup-bar"></div>
+				<img class="mockup-img" src={mockupImageSrc} alt="Producto destacado de Matizes" loading="eager" />
+				<div class="glow"></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.mockup-hero {
+		position: relative;
+		isolation: isolate;
+		padding: 90px 0;
+		color: var(--matizes-dark, #012924);
+		background: linear-gradient(180deg, color-mix(in srgb, var(--matizes-bg-secondary, #f7f9f2) 92%, white), rgba(255, 255, 255, 0.86));
+	}
+	.mockup-hero::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background-image: var(--bg);
+		background-size: cover;
+		background-position: center;
+		filter: saturate(1.1) contrast(1.05);
+		opacity: 0.28;
+		z-index: -2;
+	}
+	.mockup-hero::after {
+		content: '';
+		position: absolute;
+		inset: -2px;
+		background: radial-gradient(800px 420px at 20% 20%, color-mix(in srgb, var(--matizes-primary, #ff9da0) 35%, transparent), transparent 60%),
+			radial-gradient(760px 520px at 85% 25%, color-mix(in srgb, var(--matizes-secondary, #7fc3b0) 30%, transparent), transparent 60%),
+			radial-gradient(900px 700px at 55% 85%, color-mix(in srgb, var(--matizes-tertiary, #f8fcd4) 35%, transparent), transparent 60%);
+		z-index: -1;
+	}
+	.container {
+		max-width: 1100px;
+		margin: 0 auto;
+		padding: 0 18px;
+		display: grid;
+		grid-template-columns: 1.05fr 0.95fr;
+		gap: 40px;
+		align-items: center;
+	}
+	.eyebrow {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		padding: 8px 12px;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.65);
+		border: 1px solid rgba(0, 0, 0, 0.06);
+		backdrop-filter: blur(6px);
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		font-size: 12px;
+	}
+	.title {
+		margin: 14px 0 10px;
+		font-size: clamp(34px, 4vw, 56px);
+		line-height: 1.03;
+		letter-spacing: -0.02em;
+	}
+	.lead {
+		margin: 0;
+		max-width: 48ch;
+		font-size: 16px;
+		line-height: 1.6;
+		opacity: 0.9;
+	}
+	.cta {
+		display: flex;
+		gap: 12px;
+		align-items: center;
+		margin-top: 18px;
+		flex-wrap: wrap;
+	}
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		border-radius: 12px;
+		padding: 11px 14px;
+		font-weight: 800;
+		text-decoration: none;
+		border: 1px solid rgba(0, 0, 0, 0.08);
+		background: rgba(255, 255, 255, 0.7);
+		transition: transform 140ms ease, box-shadow 140ms ease;
+	}
+	.btn:hover {
+		transform: translateY(-1px);
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+	}
+	.btn.primary {
+		background: linear-gradient(135deg, var(--matizes-primary, #ff9da0), var(--matizes-tertiary, #f8fcd4));
+		color: var(--matizes-dark, #012924);
+		border-color: rgba(255, 255, 255, 0.1);
+	}
+	.btn.ghost {
+		background: rgba(255, 255, 255, 0.65);
+		color: #1b0f0f;
+	}
+	.stats {
+		display: flex;
+		gap: 16px;
+		margin-top: 18px;
+		flex-wrap: wrap;
+	}
+	.stat {
+		padding: 10px 12px;
+		border-radius: 14px;
+		background: rgba(255, 255, 255, 0.62);
+		border: 1px solid rgba(0, 0, 0, 0.06);
+		backdrop-filter: blur(6px);
+	}
+	.num {
+		display: block;
+		font-weight: 900;
+		font-size: 16px;
+	}
+	.lbl {
+		display: block;
+		font-size: 12px;
+		opacity: 0.75;
+		margin-top: 2px;
+	}
+	.visual {
+		display: flex;
+		justify-content: center;
+	}
+	.mockup {
+		position: relative;
+		width: min(420px, 100%);
+		aspect-ratio: 4 / 5;
+		border-radius: 22px;
+		overflow: hidden;
+		background: rgba(255, 255, 255, 0.66);
+		border: 1px solid rgba(0, 0, 0, 0.08);
+		box-shadow: 0 26px 70px rgba(0, 0, 0, 0.18);
+		transform: translateZ(0);
+	}
+	.mockup-bar {
+		height: 40px;
+		background: linear-gradient(90deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.02));
+	}
+	.mockup-img {
+		width: 100%;
+		height: calc(100% - 40px);
+		object-fit: contain;
+		padding: 26px;
+	}
+	.glow {
+		position: absolute;
+		inset: 20% -20% -30% -20%;
+		background: radial-gradient(circle at 35% 35%, color-mix(in srgb, var(--matizes-primary, #ff9da0) 35%, transparent), transparent 55%),
+			radial-gradient(circle at 70% 55%, color-mix(in srgb, var(--matizes-secondary, #7fc3b0) 30%, transparent), transparent 55%);
+		filter: blur(18px);
+		pointer-events: none;
+	}
+
+	@media (max-width: 900px) {
+		.container {
+			grid-template-columns: 1fr;
+		}
+		.mockup-hero {
+			padding: 64px 0;
+		}
+		.visual {
+			order: -1;
+		}
+	}
+</style>

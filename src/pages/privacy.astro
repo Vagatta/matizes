@@ -1,0 +1,74 @@
+---
+import BageryLayout from '../layouts/BageryLayout.astro';
+
+const title = "Política de Privacidad - Matizes";
+---
+
+<BageryLayout title={title}>
+    <!-- Page Title -->
+    <section class="page-title centred" style="background-image: url(/assets/images/background/matizes_page_title.png);">
+        <div class="auto-container">
+            <div class="content-box">
+                <div class="title">
+                    <h1>Política de Privacidad</h1>
+                </div>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="/">Inicio</a></li>
+                    <li>Privacidad</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="legal-section sec-pad">
+        <div class="auto-container">
+            <div class="text-content">
+                <h2>1. Información que recopilamos</h2>
+                <p>En Matizes, nos tomamos muy en serio su privacidad. Recopilamos información personal básica como su nombre, correo electrónico y número de teléfono únicamente cuando usted nos la proporciona voluntariamente a través de nuestros formularios de contacto o reservas.</p>
+
+                <h2>2. Uso de la información</h2>
+                <p>La información recopilada se utiliza exclusivamente para:</p>
+                <ul>
+                    <li>Responder a sus consultas y solicitudes.</li>
+                    <li>Gestionar sus pedidos y reservas.</li>
+                    <li>Enviarle información sobre promociones o eventos especiales, siempre que nos haya dado su consentimiento explícito.</li>
+                </ul>
+
+                <h2>3. Protección de datos</h2>
+                <p>Implementamos medidas de seguridad técnicas y organizativas para proteger sus datos personales contra el acceso no autorizado, la alteración, divulgación o destrucción.</p>
+
+                <h2>4. Cookies</h2>
+                <p>Nuestro sitio web utiliza cookies para mejorar la experiencia del usuario. Puede configurar su navegador para rechazar todas las cookies o para que le avise cuando se envíe una cookie.</p>
+
+                <h2>5. Sus derechos</h2>
+                <p>Usted tiene derecho a acceder, rectificar o cancelar sus datos personales en cualquier momento enviándonos un correo electrónico a hola@matizes.com.</p>
+            </div>
+        </div>
+    </section>
+
+    <style is:global>
+        .legal-section {
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.8;
+        }
+        .legal-section h2 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #012924;
+            font-size: 24px;
+        }
+        .legal-section p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        .legal-section ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        .legal-section li {
+            list-style: disc;
+            margin-bottom: 10px;
+        }
+    </style>
+</BageryLayout>

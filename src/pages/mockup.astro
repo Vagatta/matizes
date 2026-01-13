@@ -1,0 +1,89 @@
+---
+import BageryLayout from '../layouts/BageryLayout.astro';
+import MockupHero from '../components/MockupHero.astro';
+
+const title = 'Mockup + GSAP/AOS';
+---
+
+<BageryLayout title={title}>
+	<MockupHero
+		headline="A modern hero for Matizes"
+		subhead="Un mockup con animaciones suaves (AOS) y una entrada con GSAP. Ideal para landing o portada."
+		primaryHref="/"
+		primaryLabel="Ver Home"
+		secondaryHref="/our-menu"
+		secondaryLabel="Ver Menú"
+	/>
+
+	<section class="mockup-section">
+		<div class="container">
+			<div class="card" data-aos="fade-up">
+				<h2>Scroll demo</h2>
+				<p>
+					Baja para ver animaciones. Esto es una sección extra para comprobar AOS.
+				</p>
+			</div>
+			<div class="grid">
+				<div class="tile" data-aos="fade-up" data-aos-delay="0">Bakes</div>
+				<div class="tile" data-aos="fade-up" data-aos-delay="80">Ice Cream</div>
+				<div class="tile" data-aos="fade-up" data-aos-delay="160">Coffee</div>
+				<div class="tile" data-aos="fade-up" data-aos-delay="240">Cakes</div>
+			</div>
+		</div>
+	</section>
+
+	<script type="module">
+		import AOS from 'aos';
+		import 'aos/dist/aos.css';
+		import gsap from 'gsap';
+
+		AOS.init({
+			once: true,
+			duration: 700,
+			offset: 10,
+			easing: 'ease-out-cubic',
+		});
+
+		gsap.from('#gsap-title', { y: 14, opacity: 0, duration: 0.65, ease: 'power2.out' });
+		gsap.from('#gsap-lead', { y: 10, opacity: 0, duration: 0.65, delay: 0.08, ease: 'power2.out' });
+		gsap.from('#gsap-mockup', { y: 18, rotate: -1.2, opacity: 0, duration: 0.75, delay: 0.05, ease: 'power2.out' });
+	</script>
+</BageryLayout>
+
+<style>
+	.mockup-section {
+		padding: 60px 0 90px;
+		background: #fff;
+	}
+	.container {
+		max-width: 1100px;
+		margin: 0 auto;
+		padding: 0 18px;
+	}
+	.card {
+		border-radius: 18px;
+		border: 1px solid rgba(0, 0, 0, 0.08);
+		background: #fff;
+		box-shadow: 0 18px 50px rgba(0, 0, 0, 0.1);
+		padding: 18px;
+		margin-bottom: 22px;
+	}
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 12px;
+	}
+	.tile {
+		border-radius: 16px;
+		padding: 22px 14px;
+		text-align: center;
+		font-weight: 900;
+		background: linear-gradient(135deg, rgba(255, 77, 77, 0.12), rgba(255, 179, 71, 0.14));
+		border: 1px solid rgba(0, 0, 0, 0.06);
+	}
+	@media (max-width: 900px) {
+		.grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+</style>

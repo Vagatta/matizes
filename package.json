@@ -1,0 +1,19 @@
+{
+  "name": "matizes",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "migrate:matizes": "node ./scripts/migrate-bagery.mjs",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@types/three": "^0.182.0",
+    "aos": "^2.3.4",
+    "astro": "^5.16.5",
+    "gsap": "^3.14.2",
+    "three": "^0.182.0"
+  }
+}

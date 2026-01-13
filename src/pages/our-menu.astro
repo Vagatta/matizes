@@ -1,0 +1,269 @@
+---
+import MatizesLayout from '../layouts/BageryLayout.astro';
+
+const title = "Nuestra Carta - Matizes";
+---
+
+<MatizesLayout title={title}>
+    <!-- Page Title -->
+    <section class="page-title centred" style="background-image: url(/assets/images/background/matizes_page_title.png);">
+        <div class="auto-container">
+            <div class="content-box">
+                <div class="title">
+                    <h1>Nuestra Carta</h1>
+                </div>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="/">Inicio</a></li>
+                    <li>Nuestra Carta</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ourmenu-section -->
+    <section class="ourmenu-section sec-pad">
+        <div class="auto-container">
+            <div class="sec-title centred">
+                <p>Bocados Dulces</p>
+                <h2>Nuestra Selección <br />de Repostería</h2>
+            </div>
+            <div class="menu-grid">
+                <div class="single-menu-box">
+                    <div class="menu-visual">
+                        <figure class="image-box"><img src="/assets/images/resource/matizes_pistacho.jpg" alt="Tarta Matizes"></figure>
+                        <span class="price price-badge">Autor</span>
+                    </div>
+                    <div class="menu-copy">
+                        <div class="title-row">
+                            <h4>Tarta de Pistacho</h4>
+                            <div class="line"></div>
+                        </div>
+                        <p class="description">Nuestra especialidad con crema de pistacho natural</p>
+                    </div>
+                </div>
+                <div class="single-menu-box">
+                    <div class="menu-visual">
+                        <figure class="image-box"><img src="/assets/images/resource/matizes_cheesecake.jpg" alt="Cheesecake Matizes"></figure>
+                        <span class="price price-badge">Artesanal</span>
+                    </div>
+                    <div class="menu-copy">
+                        <div class="title-row">
+                            <h4>Cheesecake de Frutos Rojos</h4>
+                            <div class="line"></div>
+                        </div>
+                        <p class="description">Textura cremosa con coulis de frutos del bosque</p>
+                    </div>
+                </div>
+                <div class="single-menu-box">
+                    <div class="menu-visual">
+                        <figure class="image-box"><img src="/assets/images/resource/matizes_redvelvet.jpg" alt="Red Velvet Matizes"></figure>
+                        <span class="price price-badge">Signature</span>
+                    </div>
+                    <div class="menu-copy">
+                        <div class="title-row">
+                            <h4>Red Velvet Matizes</h4>
+                            <div class="line"></div>
+                        </div>
+                        <p class="description">Sabor intenso con el toque secreto de la casa</p>
+                    </div>
+                </div>
+                <div class="single-menu-box">
+                    <div class="menu-visual">
+                        <figure class="image-box"><img src="/assets/images/resource/matizes_cookie.jpg" alt="Cookie Gourmet"></figure>
+                        <span class="price price-badge">Fresh</span>
+                    </div>
+                    <div class="menu-copy">
+                        <div class="title-row">
+                            <h4>Cookie Gourmet</h4>
+                            <div class="line"></div>
+                        </div>
+                        <p class="description">Recién horneada con trozos de chocolate puro</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- coffee-menu -->
+    <section class="coffee-menu centred sec-pad" style="background-image: url(/assets/images/background/menu-1.jpg);">
+        <div class="auto-container">
+            <div class="sec-title">
+                <p>Nuestros Cafés</p>
+                <h2>Café de Especialidad <br />Seleccionado</h2>
+            </div>
+            <div class="row clearfix">
+                <div class="col-lg-3 col-md-6 col-sm-12 single-column">
+                    <div class="coffee-menu-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                        <div class="inner-box">
+                            <div class="icon-box">
+                                <div class="icon-bg-1" style="background-image: url(/assets/images/icons/icon-bg-8.png);"></div>
+                                <div class="icon-bg-2" style="background-image: url(/assets/images/icons/icon-bg-9.png);"></div>
+                                <img src="/assets/images/resource/matizes_latte.jpg" alt="Latte Art" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; margin-bottom: 15px; border: 3px solid #ff9da0;">
+                                <span class="price">Autor</span>
+                            </div>
+                            <h3>Latte Matizes</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- More coffee items can be added here following the same structure -->
+            </div>
+        </div>
+    </section>
+
+    <style is:global>
+        /* Matizes layout overrides */
+        .ourmenu-section .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 32px 36px;
+        }
+
+        .ourmenu-section .single-menu-box {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            padding: 20px 24px;
+            border-radius: 28px;
+            background: #fff;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+            min-height: auto;
+            padding-left: 24px;
+        }
+
+        .ourmenu-section .single-menu-box .menu-visual {
+            position: relative;
+            width: 130px;
+            min-width: 150px;
+            flex-shrink: 0;
+            display: inline-flex;
+            justify-content: center;
+            padding-right: 28px;
+            overflow: visible;
+        }
+
+        .ourmenu-section .single-menu-box .image-box {
+            position: relative;
+            left: auto;
+            top: auto;
+            width: 130px;
+            height: 130px;
+        }
+
+        .ourmenu-section .single-menu-box .image-box img {
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: transform 0.4s ease, filter 0.4s ease;
+        }
+
+        .ourmenu-section .single-menu-box .price-badge {
+            position: absolute;
+            top: -6px;
+            right: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            background: #c6e6e1;
+            color: #035045;
+            border: 4px solid #fff;
+            box-shadow: 0 12px 25px rgba(3, 80, 69, 0.18);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ourmenu-section .single-menu-box:hover .image-box img {
+            transform: scale(1.08) rotate(3deg);
+            filter: brightness(1.04);
+            opacity: 1 !important;
+        }
+
+        .ourmenu-section .single-menu-box:hover .price-badge {
+            transform: translate(4px, -4px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(3, 80, 69, 0.25);
+        }
+
+        .ourmenu-section .single-menu-box .menu-copy {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .ourmenu-section .single-menu-box .title-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .ourmenu-section .single-menu-box .title-row h4 {
+            font-size: 1.25rem;
+            line-height: 1.4;
+            margin: 0;
+            color: #012924;
+            font-weight: 700;
+        }
+
+        .ourmenu-section .single-menu-box .title-row .line {
+            flex: 1;
+            height: 1px;
+            border: none;
+            border-top: 1px dashed rgba(1, 41, 36, 0.15);
+        }
+
+        .ourmenu-section .single-menu-box .description {
+            margin: 0;
+            color: rgba(1, 41, 36, 0.75);
+            font-size: 1.05rem;
+            line-height: 1.5;
+            max-width: 100%;
+        }
+
+        @media (max-width: 640px) {
+            .ourmenu-section .single-menu-box {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+
+            .ourmenu-section .single-menu-box .menu-visual {
+                margin: 0 auto 16px;
+            }
+
+            .ourmenu-section .single-menu-box .title-row {
+                flex-direction: column;
+            }
+
+            .ourmenu-section .single-menu-box .title-row .line {
+                width: 100%;
+            }
+        }
+
+        /* Uniform Menu Cards */
+        .single-menu-box .image-box img {
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: transform 0.4s ease;
+        }
+        .single-menu-box:hover .image-box img {
+            transform: scale(1.08) rotate(3deg);
+            opacity: 1 !important;
+        }
+        
+        /* Animated titles */
+        .sec-title h2 {
+            transition: transform 0.4s ease;
+        }
+        .sec-title:hover h2 {
+            transform: translateY(-5px);
+        }
+    </style>
+</MatizesLayout>

@@ -1,0 +1,97 @@
+---
+import BageryLayout from '../layouts/BageryLayout.astro';
+
+const title = "Nuestra Historia - Matizes";
+---
+
+<BageryLayout title={title}>
+    <!-- Page Title -->
+    <section class="page-title centred" style="background-image: url(/assets/images/background/matizes_page_title.png);">
+        <div class="auto-container">
+            <div class="content-box">
+                <div class="title">
+                    <h1>Nuestra Historia</h1>
+                </div>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="/">Inicio</a></li>
+                    <li>Sobre Nosotros</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- about-section -->
+    <section class="ourstory-section sec-pad">
+        <div class="auto-container">
+            <div class="row align-items-center clearfix">
+                <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+                    <figure class="image-box wow slideInLeft animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                        <img src="/assets/images/resource/matizes_bread.jpg" alt="Matizes Passion" style="border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                    </figure>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                    <div id="content_block_1">
+                        <div class="content-box ml-40">
+                            <div class="sec-title">
+                                <p>Desde el Corazón</p>
+                                <h2>El arte de la repostería artesanal</h2>
+                            </div>
+                            <div class="text">
+                                <p>En Matizes, nuestra historia comienza con una idea simple: crear un espacio donde la calidad y el diseño se encuentren en perfecta armonía. Cada una de nuestras creaciones es el resultado de horas de dedicación, utilizando técnicas de autor y los mejores ingredientes locales.</p>
+                                <p>No solo servimos café y tartas; servimos momentos de pausa y disfrute en un entorno moderno diseñado para inspirar.</p>
+                            </div>
+                            <figure class="signature"><img src="/assets/images/icons/signature-1.png" alt="Signature"></figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- feature-section -->
+    <section class="feature-section sec-pad centred">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="col-lg-4 col-md-6 col-sm-12 feature-block">
+                    <div class="feature-block-one">
+                        <div class="inner-box">
+                            <div class="count-box" style="background-image: url(/assets/images/icons/icon-bg-2.png);">
+                                <h4>01</h4>
+                            </div>
+                            <div class="inner">
+                                <h4>Ingredientes Premium</h4>
+                                <p>Seleccionamos cuidadosamente cada materia prima para garantizar un sabor auténtico y saludable.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 feature-block">
+                    <div class="feature-block-one">
+                        <div class="inner-box">
+                            <div class="count-box" style="background-image: url(/assets/images/icons/icon-bg-2.png);">
+                                <h4>02</h4>
+                            </div>
+                            <div class="inner">
+                                <h4>Diseño de Autor</h4>
+                                <p>Nuestras recetas son únicas, combinando sabores tradicionales con una estética de vanguardia.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 feature-block">
+                    <div class="feature-block-one">
+                        <div class="inner-box">
+                            <div class="count-box" style="background-image: url(/assets/images/icons/icon-bg-2.png);">
+                                <h4>03</h4>
+                            </div>
+                            <div class="inner">
+                                <h4>Cultura del Café</h4>
+                                <p>Somos apasionados del café de especialidad, cuidando cada detalle desde el grano hasta la taza.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</BageryLayout>

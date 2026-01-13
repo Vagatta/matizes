@@ -1,0 +1,73 @@
+---
+---
+<header class="main-header style-one matizes-header">
+    <div class="header-lower">
+        <div class="outer-box">
+            <div class="logo-box">
+                <figure class="logo">
+                    <a href="/">
+                        <img src="/src/assets/matizes.svg" alt="Matizes Logo" style="max-height: 74px;">
+                    </a>
+                </figure>
+            </div>
+            <div class="menu-area">
+                <!--Mobile Navigation Toggler-->
+                <div class="mobile-nav-toggler">
+                    <i class="icon-bar"></i>
+                    <i class="icon-bar"></i>
+                    <i class="icon-bar"></i>
+                </div>
+                <nav class="main-menu navbar-expand-md navbar-light">
+                    <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                        <ul class="navigation clearfix">
+                            <li><a href="/">Inicio</a></li>
+                            <li><a href="/about">Nuestra Historia</a></li>
+                            <li><a href="/our-menu">Nuestra Carta</a></li>
+                            <li><a href="/contact">Contacto</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <ul class="menu-right-content clearfix">
+                <li class="cart-btn">
+                    <a href="/cart" style="background-image: url(/assets/images/icons/icon-bg-1.png);">
+                        <i class="icon-Bag"></i>
+                        <span>0</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Sticky Header -->
+    <div class="sticky-header">
+        <div class="outer-box">
+            <div class="logo-box">
+                <figure class="logo">
+                    <a href="/"><img src="/src/assets/matizes.svg" alt="Matizes Small Logo" style="max-height: 60px;"></a>
+                </figure>
+            </div>
+            <div class="menu-area">
+                <nav class="main-menu clearfix">
+                    <!-- Javascript will fill this via the template's script.js -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+<style>
+    .main-header .navigation > li > a {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 700;
+        color: #012924;
+    }
+    .main-header .navigation > li:hover > a,
+    .main-header .navigation > li.current > a {
+        color: #ff9da0 !important;
+    }
+    .sticky-header {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
+    }
+</style>

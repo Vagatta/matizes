@@ -1,0 +1,61 @@
+---
+import BageryLayout from '../layouts/BageryLayout.astro';
+
+const title = "Términos y Condiciones - Matizes";
+---
+
+<BageryLayout title={title}>
+    <!-- Page Title -->
+    <section class="page-title centred" style="background-image: url(/assets/images/background/matizes_page_title.png);">
+        <div class="auto-container">
+            <div class="content-box">
+                <div class="title">
+                    <h1>Términos y Condiciones</h1>
+                </div>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="/">Inicio</a></li>
+                    <li>Términos</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="legal-section sec-pad">
+        <div class="auto-container">
+            <div class="text-content">
+                <h2>1. Uso del sitio web</h2>
+                <p>El uso de este sitio web implica la aceptación plena de estos términos y condiciones. Si no está de acuerdo con alguna parte de estos términos, no debe utilizar nuestro sitio web.</p>
+
+                <h2>2. Propiedad Intelectual</h2>
+                <p>Todo el contenido de este sitio web, incluyendo textos, gráficos, logotipos, imágenes y software, es propiedad de Matizes o de sus proveedores de contenido y está protegido por las leyes de propiedad intelectual.</p>
+
+                <h2>3. Limitación de Responsabilidad</h2>
+                <p>Matizes no será responsable por daños de cualquier tipo que surjan del uso de este sitio o de cualquier información, contenido o producto incluido en este sitio.</p>
+
+                <h2>4. Reservas y Pedidos</h2>
+                <p>Todas las reservas y pedidos realizados a través del sitio web están sujetos a disponibilidad y confirmación por parte de Matizes.</p>
+
+                <h2>5. Ley Aplicable</h2>
+                <p>Estos términos y condiciones se rigen e interpretan de acuerdo con las leyes de España. Cualquier disputa relacionada con estos términos estará sujeta a la jurisdicción exclusiva de los tribunales de Madrid.</p>
+            </div>
+        </div>
+    </section>
+
+    <style is:global>
+        .legal-section {
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.8;
+        }
+        .legal-section h2 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #012924;
+            font-size: 24px;
+        }
+        .legal-section p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+    </style>
+</BageryLayout>

@@ -1,0 +1,495 @@
+---
+import MatizesLayout from '../layouts/BageryLayout.astro';
+import MatizesHero from '../components/MatizesHero.astro';
+
+const title = "Matizes - Pastelería Creativa";
+---
+
+<MatizesLayout title={title}>
+	<MatizesHero />
+
+	<!-- Sección: Nuestra Pasión (About) -->
+	<section class="ourstory-section sec-pad" style="background-image: url(/assets/images/background/matizes_mission.png);">
+		<div class="auto-container">
+			<div class="sec-title centred">
+				<p>Nuestra Pasión</p>
+				<h2>Sabor artesanal y café de autoridad <br />desde el corazón</h2>
+			</div>
+			<div class="row align-items-center clearfix">
+				<div class="col-lg-4 col-md-6 col-sm-12 content-column">
+					<div id="content_block_1">
+						<div class="content-box">
+							<h3>Sobre Matizes</h3>
+							<p>En Matizes, creemos que cada bocado debe contar una historia. Nuestra propuesta combina técnicas tradicionales con un diseño moderno y minimalista, utilizando solo ingredientes de la más alta calidad para crear momentos inolvidables.</p>
+							<figure class="signature"><img src="/assets/images/icons/signature-1.png" alt=""></figure>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12 image-column">
+					<figure class="image-box wow slideInUp animated animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+						<img src="/assets/images/resource/matizes_about_center.jpg" alt="Pastelería Matizes" class="standard-passion-img">
+					</figure>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12 content-column">
+					<div id="content_block_2">
+						<div class="content-box">
+							<h3>Puntos Clave</h3>
+							<p>Un espacio diseñado para los amantes de la buena repostería y el café de especialidad.</p>
+							<ul class="list clearfix">
+								<li><i class="icon-Check-mark"></i>Recetas de autor únicas.</li>
+								<li><i class="icon-Check-mark"></i>Café de especialidad seleccionado.</li>
+								<li><i class="icon-Check-mark"></i>Ambiente moderno e inspirador.</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="more-btn centred">
+				<a href="/about" class="theme-btn-one">Conócenos más</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Sección: Selección de Autor (Especiales) -->
+	<section class="shop-section" style="background-image: url(/assets/images/background/matizes_page_title.png);">
+		<div class="auto-container">
+			<div class="sec-title">
+				<p>Selección de Autor</p>
+				<h2>Nuestros Especiales <br />más buscados.</h2>
+			</div>
+			<div class="four-item-carousel owl-carousel owl-theme owl-dots-none nav-style-one">
+				<div class="shop-block-one">
+					<div class="inner-box">
+						<figure class="image-box">
+							<img src="/assets/images/resource/matizes_pistacho.jpg" alt="Tarta Matizes">
+						</figure>
+						<div class="lower-content">
+							<span class="price-box">Premium</span>
+							<h3><a href="/our-menu">Tarta de Pistacho</a></h3>
+							<ul class="rating clearfix">
+								<li><i class="icon-Star"></i></li>
+								<li><i class="icon-Star"></i></li>
+								<li><i class="icon-Star"></i></li>
+								<li><i class="icon-Star"></i></li>
+								<li><i class="icon-Star"></i></li>
+							</ul>
+							<div class="cart-btn"><a href="/our-menu" class="theme-btn-two">Ver Menú</a></div>
+						</div>
+					</div>
+				</div>
+				<div class="shop-block-one">
+					<div class="inner-box">
+						<figure class="image-box">
+							<img src="/assets/images/resource/matizes_latte.jpg" alt="Café de Especialidad">
+						</figure>
+						<div class="lower-content">
+							<span class="price-box">Autor</span>
+							<h3><a href="/our-menu">Latte Matizes</a></h3>
+							<ul class="rating clearfix">
+								<li><i class="icon-Star"></i></li>
+								<li><i class="icon-Star"></i></li>
+								<li><i class="icon-Star"></i></li>
+								<li><i class="icon-Star"></i></li>
+								<li><i class="icon-Star"></i></li>
+							</ul>
+							<div class="cart-btn"><a href="/our-menu" class="theme-btn-two">Ver Menú</a></div>
+						</div>
+					</div>
+				</div>
+				<div class="shop-block-one">
+					<div class="inner-box">
+						<figure class="image-box">
+							<img src="/assets/images/resource/matizes_bread.jpg" alt="Bollería Fina">
+						</figure>
+						<div class="lower-content">
+							<span class="price-box">Artesanal</span>
+							<h3><a href="/our-menu">Croissant Suizo</a></h3>
+							<ul class="rating clearfix">
+								<li><i class="icon-Star"></i></li>
+								<li><i class="icon-Star"></i></li>
+								<li><i class="icon-Star"></i></li>
+								<li><i class="icon-Star"></i></li>
+								<li><i class="icon-Star"></i></li>
+							</ul>
+							<div class="cart-btn"><a href="/our-menu" class="theme-btn-two">Ver Menú</a></div>
+						</div>
+					</div>
+				</div>
+				<div class="shop-block-one">
+					<div class="inner-box">
+						<figure class="image-box">
+							<img src="/assets/images/resource/matizes_cookie.jpg" alt="Cookies Gourmet">
+						</figure>
+						<div class="lower-content">
+							<span class="price-box">Special</span>
+							<h3><a href="/our-menu">Red Velvet Cookie</a></h3>
+							<ul class="rating clearfix">
+								<li><i class="icon-Star"></i></li>
+								<li><i class="icon-Star"></i></li>
+								<li><i class="icon-Star"></i></li>
+								<li><i class="icon-Star"></i></li>
+								<li><i class="icon-Star"></i></li>
+							</ul>
+							<div class="cart-btn"><a href="/our-menu" class="theme-btn-two">Ver Menú</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Sección: Experiencia Matizes (Galería) -->
+	<section class="project-section ourstory-section sec-pad" style="background-image: url(/assets/images/background/matizes_mission.png);">
+		<div class="auto-container">
+			<div class="row clearfix">
+				<div class="col-lg-4 col-md-12 col-sm-12 content-column">
+					<div class="content-box">
+						<div class="sec-title">
+							<p>Experiencia Matizes</p>
+							<h2>Echa un vistazo <br />a nuestro mundo</h2>
+						</div>
+						<div class="text">
+							<p>Momentos capturados para compartir la esencia de nuestra pastelería. Desde el horneado diario hasta el arte del café.</p>
+						</div>
+						<div class="project-nav-buttons" aria-label="Controles de la galería Experiencia Matizes">
+							<button type="button" class="project-nav-btn prev" aria-label="Galería anterior">
+								<span class="icon-Arrow-Left"></span>
+							</button>
+							<button type="button" class="project-nav-btn next" aria-label="Galería siguiente">
+								<span class="icon-Arrow-Right"></span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8 col-md-12 col-sm-12 porject-column">
+					<div id="experiencia-carousel" class="project-carousel owl-carousel owl-theme owl-dots-none nav-style-one">
+						<div class="project-block-one">
+							<div class="inner-box">
+								<figure class="image-box">
+									<img src="/assets/images/gallery/matizes_artesania.jpg" alt="Matizes Artesanía">
+								</figure>
+								<div class="lower-content">
+									<div class="view-btn"><a href="/assets/images/gallery/matizes_artesania.jpg" class="lightbox-image" data-fancybox="gallery"><i class="icon-Zoom"></i></a></div>
+									<h3><a href="/gallery-1">Artesanía</a></h3>
+								</div>
+							</div>
+						</div>
+						<div class="project-block-one">
+							<div class="inner-box">
+								<figure class="image-box">
+									<img src="/assets/images/gallery/matizes_ambiente.jpg" alt="Matizes Ambiente">
+								</figure>
+								<div class="lower-content">
+									<div class="view-btn"><a href="/assets/images/gallery/matizes_ambiente.jpg" class="lightbox-image" data-fancybox="gallery"><i class="icon-Zoom"></i></a></div>
+									<h3><a href="/gallery-1">Nuestro Local</a></h3>
+								</div>
+							</div>
+						</div>
+						<div class="project-block-one">
+							<div class="inner-box">
+								<figure class="image-box">
+									<img src="/assets/images/gallery/matizes_dulzura.jpg" alt="Matizes Dulzura">
+								</figure>
+								<div class="lower-content">
+									<div class="view-btn"><a href="/assets/images/gallery/matizes_dulzura.jpg" class="lightbox-image" data-fancybox="gallery"><i class="icon-Zoom"></i></a></div>
+									<h3><a href="/gallery-1">Dulzura</a></h3>
+								</div>
+							</div>
+						</div>
+						<div class="project-block-one">
+							<div class="inner-box">
+								<figure class="image-box">
+									<img src="/assets/images/gallery/matizes_equipo.jpg" alt="Matizes Equipo">
+								</figure>
+								<div class="lower-content">
+									<div class="view-btn"><a href="/assets/images/gallery/matizes_equipo.jpg" class="lightbox-image" data-fancybox="gallery"><i class="icon-Zoom"></i></a></div>
+									<h3><a href="/gallery-1">Inspiración</a></h3>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Sección: Testimonios -->
+	<section class="testimonial-section clean-redesign sec-pad">
+		<div class="auto-container">
+			<div class="row clearfix">
+				<div class="col-lg-12 col-md-12 col-sm-12 content-column">
+					<div class="inner-box">
+						<div class="sec-title">
+							<p>Testimonios</p>
+							<h2>Lo que dicen de <br />nuestra pastelería.</h2>
+						</div>
+						<div class="single-item-carousel owl-carousel owl-theme owl-dots-none nav-style-one">
+							<div class="testimonial-block-one">
+								<div class="icon-box">
+									<i class="icon-Quote"></i>
+								</div>
+								<div class="text">
+									<p>"El mejor café de especialidad de la ciudad y las tartas son simplemente obras de arte. Un ambiente increíble."</p>
+								</div>
+								<div class="author-info">
+									<h4>Ana García</h4>
+									<span class="designation">Cliente Fiel</span>
+								</div>
+							</div>
+							<div class="testimonial-block-one">
+								<div class="icon-box">
+									<i class="icon-Quote"></i>
+								</div>
+								<div class="text">
+									<p>"Me encanta el diseño de local y la atención. Los croissants de pistacho son obligatorios."</p>
+								</div>
+								<div class="author-info">
+									<h4>Marcos López</h4>
+									<span class="designation">Coffee Lover</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<style is:global>
+		/* Evita duplicidad visual: el template trae su propio banner/slider */
+		.banner-section,
+		.mockup-hero {
+			display: none !important;
+		}
+		/* El preloader del template muestra texto antiguo (BAGERY) */
+		.loader-wrap {
+			display: none !important;
+		}
+		/* Nuestro hero ya actúa como cabecera/portada: ocultamos headers del template */
+		.main-header,
+		.sticky-header,
+		.product-sidebar,
+		.xs-sidebar-group {
+			display: none !important;
+		}
+
+		/* Enforce consistency in product images */
+		.shop-block-one .image-box img {
+			aspect-ratio: 1 / 1;
+			object-fit: cover;
+			transition: all 0.5s ease-in-out;
+			border-radius: 12px;
+		}
+		.shop-block-one .inner-box:hover .image-box img {
+			transform: scale(1.05);
+		}
+
+		/* Enforce consistency in gallery images */
+		.project-block-one .image-box img {
+			aspect-ratio: 308 / 430;
+			object-fit: cover;
+			transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+			border-radius: 12px;
+		}
+		.project-block-one .inner-box:hover .image-box img {
+			transform: scale(1.1);
+			filter: brightness(0.85);
+		}
+
+		/* Passion and Testimonial image standardization */
+		.standard-passion-img {
+			width: 100%;
+			max-height: 612px;
+			aspect-ratio: 370 / 612;
+			object-fit: cover;
+			border-radius: 20px;
+			box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+			transition: transform 0.6s ease;
+		}
+		.image-column:hover .standard-passion-img {
+			transform: translateY(-10px);
+		}
+
+		/* Testimonial Clean Redesign */
+		.testimonial-section.clean-redesign {
+			background: 
+                linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(240,240,240,0.5) 50%, rgba(255,255,255,1) 100%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 800 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='marble'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.008' numOctaves='5' seed='5'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23marble)' opacity='0.4'/%3E%3C/svg%3E");
+            background-color: #fff;
+			position: relative;
+			overflow: hidden;
+            min-height: 500px;
+		}
+
+		/* Decorative Marble/Quote Background Effect */
+		.testimonial-section.clean-redesign::before {
+            content: '';
+            position: absolute;
+            right: -5%;
+            top: 0;
+            width: 35%; /* Right side highlight */
+            height: 100%;
+            background: #ff9da0 !important; /* PINK */
+            opacity: 1 !important;
+            box-shadow: -15px 0 50px rgba(0,0,0,0.08);
+            z-index: 0;
+            transform: skewX(-5deg);
+            transition: all 0.6s ease;
+		}
+
+        /* Float Cupcake Container */
+        .testimonial-section.clean-redesign .cupcake-container {
+            position: absolute;
+            right: 15%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 250px;
+            height: 250px;
+            z-index: 2;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 1s ease, transform 0.1s linear;
+        }
+
+        .testimonial-section.clean-redesign.visible-anim .cupcake-container {
+            opacity: 1;
+        }
+
+        .testimonial-section.clean-redesign .cupcake-svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
+        }
+
+        /* Re-adding the quote icon since we overrode :before */
+        .testimonial-section.clean-redesign .auto-container::after {
+			content: '\e91c';
+			font-family: 'icomoon';
+			position: absolute;
+			left: -120px;
+			top: 50%;
+			transform: translateY(-50%);
+			font-size: 600px;
+			color: rgba(127, 195, 176, 0.08); /* Very subtle pistachio */
+			z-index: -1;
+			pointer-events: none;
+		}
+
+		.testimonial-section.clean-redesign .auto-container {
+			position: relative;
+			z-index: 1;
+		}
+
+		.testimonial-section.clean-redesign .auto-container {
+			position: relative;
+			z-index: 1;
+		}
+
+		.testimonial-section.clean-redesign .content-column {
+			padding: 40px 0;
+		}
+
+		.testimonial-section.clean-redesign .inner-box {
+			width: 100%;
+			max-width: 900px;
+			margin-left: 0; /* Align to left */
+		}
+
+		.testimonial-section.clean-redesign .sec-title h2 {
+			color: #012924 !important;
+		}
+
+		.testimonial-section.clean-redesign .testimonial-block-one .icon-box {
+			background: #7fc3b0 !important;
+			width: 70px;
+			height: 70px;
+			line-height: 70px;
+			border-radius: 50%;
+			margin-bottom: 30px;
+			color: #fff;
+			font-size: 28px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			box-shadow: 0 10px 20px rgba(127, 195, 176, 0.2);
+		}
+
+		.testimonial-section.clean-redesign .testimonial-block-one .text p {
+			font-size: 24px;
+			line-height: 1.6;
+			color: #222 !important;
+			font-style: normal;
+			font-family: 'Nunito', sans-serif;
+			font-weight: 600;
+		}
+
+		.testimonial-section.clean-redesign .testimonial-block-one .author-info h4 {
+			color: #012924 !important;
+			font-size: 22px;
+			font-weight: 800;
+			margin-top: 30px;
+		}
+
+		.testimonial-section.clean-redesign .testimonial-block-one .author-info .designation {
+			color: #ff9da0;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			font-size: 14px;
+		}
+
+		.testimonial-section.clean-redesign .owl-dots {
+			margin-top: 50px;
+			text-align: left;
+		}
+		.testimonial-section.clean-redesign .owl-dot span {
+			background: #eee !important;
+			width: 12px !important;
+			height: 12px !important;
+		}
+		.testimonial-section.clean-redesign .owl-dot.active span {
+			background: #ff9da0 !important;
+			width: 35px !important;
+		}
+
+		/* Title animations */
+		.sec-title h2 {
+			transition: transform 0.4s ease;
+		}
+		.sec-title:hover h2 {
+			transform: translateY(-5px);
+		}
+	</style>
+
+    <script is:inline>
+        // Scroll Animation for Cupcake
+        const testimonialSection = document.querySelector('.testimonial-section.clean-redesign');
+        const cupcake = document.getElementById('cupcakeScroll');
+
+        if (testimonialSection && cupcake) {
+            window.addEventListener('scroll', () => {
+                const rect = testimonialSection.getBoundingClientRect();
+                const viewHeight = window.innerHeight;
+
+                // Check if section is in viewport
+                if (rect.top < viewHeight && rect.bottom > 0) {
+                    testimonialSection.classList.add('visible-anim');
+                    
+                    // Calculate scroll percentage within the section
+                    const totalHeight = rect.height + viewHeight;
+                    const scrolled = viewHeight - rect.top;
+                    const percentage = Math.max(0, Math.min(1, scrolled / totalHeight));
+
+                    // Apply 3D-like movement and rotation
+                    const rotation = percentage * 360;
+                    const translateY = (percentage - 0.5) * 100; // Move up/down
+                    const scale = 0.8 + (Math.sin(percentage * Math.PI) * 0.4); // Pulsing effect
+
+                    cupcake.style.transform = `translateY(${translateY}px) rotate(${rotation}deg) scale(${scale})`;
+                } else {
+                    testimonialSection.classList.remove('visible-anim');
+                }
+            });
+        }
+    </script>
+</MatizesLayout>

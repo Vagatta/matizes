@@ -1,0 +1,73 @@
+---
+import BageryLayout from '../layouts/BageryLayout.astro';
+
+const title = "Tienda - Matizes";
+---
+
+<BageryLayout title={title}>
+    <!-- Page Title -->
+    <section class="page-title centred" style="background-image: url(/assets/images/background/matizes_page_title.png);">
+        <div class="auto-container">
+            <div class="content-box">
+                <div class="title">
+                    <h1>Nuestra Tienda</h1>
+                </div>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="/">Inicio</a></li>
+                    <li>Tienda</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- shop-page-section -->
+    <section class="shop-page-section shop-page-1 sec-pad">
+        <div class="auto-container">
+            <div class="item-shorting clearfix">
+                <div class="left-column pull-left">
+                    <h3>Mostrando nuestros productos de autor</h3>
+                </div>
+            </div>
+            <div class="our-shop">
+                <div class="row clearfix">
+                    <!-- Shop Block 1 -->
+                    <div class="col-lg-3 col-md-6 col-sm-12 shop-block">
+                        <div class="shop-block-one">
+                            <div class="inner-box">
+                                <figure class="image-box">
+                                    <img src="/assets/images/resource/matizes_pistacho.jpg" alt="Producto Matizes">
+                                </figure>
+                                <div class="lower-content">
+                                    <span class="price-box">Artesanal</span>
+                                    <h3><a href="/shop-details">Tarta Matizes</a></h3>
+                                    <ul class="rating clearfix">
+                                        <li><i class="icon-Star"></i></li>
+                                        <li><i class="icon-Star"></i></li>
+                                        <li><i class="icon-Star"></i></li>
+                                        <li><i class="icon-Star"></i></li>
+                                        <li><i class="icon-Star"></i></li>
+                                    </ul>
+                                    <div class="cart-btn"><a href="/cart" class="theme-btn-two">Añadir</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- More shop blocks follow the same pattern -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style is:global>
+        /* Uniform Shop Cards */
+        .shop-block-one .image-box img {
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            transition: all 0.5s ease-in-out;
+        }
+        .shop-block-one .inner-box:hover .image-box img {
+            transform: scale(1.05);
+        }
+    </style>
+</BageryLayout>
+    

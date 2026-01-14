@@ -21,25 +21,31 @@
         const acceptBtn = document.getElementById('accept-cookies');
         const declineBtn = document.getElementById('decline-cookies');
 
+        const hideBanner = () => {
+            banner.classList.remove('show');
+            banner.setAttribute('aria-hidden', 'true');
+        };
+
         if (!localStorage.getItem('cookies-accepted')) {
             banner.classList.add('show');
+            banner.removeAttribute('aria-hidden');
+        } else {
+            hideBanner();
         }
 
         acceptBtn.addEventListener('click', () => {
             localStorage.setItem('cookies-accepted', 'true');
-            banner.classList.remove('show');
+            hideBanner();
         });
 
-        declineBtn.addEventListener('click', () => {
-            banner.classList.remove('show');
-        });
+        declineBtn.addEventListener('click', hideBanner);
     })();
 </script>
 
 <style>
     .cookie-banner {
         position: fixed;
-        bottom: -100px;
+        bottom: 0;
         left: 0;
         width: 100%;
         background: rgba(255, 255, 255, 0.95);
@@ -47,12 +53,17 @@
         box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
         z-index: 10000;
         padding: 20px 0;
-        transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s ease;
         border-top: 2px solid #ff9da0;
+        transform: translateY(100%);
+        opacity: 0;
+        pointer-events: none;
     }
 
     .cookie-banner.show {
-        bottom: 0;
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
     }
 
     .cookie-banner .inner-box {

@@ -6,16 +6,12 @@ const title = "Nuestra Carta - Matizes";
 
 <MatizesLayout title={title}>
     <!-- Page Title -->
-    <section class="page-title centred" style="background-image: url(/assets/images/background/matizes_page_title.png);">
+    <section class="page-title centred" style="background-image: url(/assets/images/background/matizes_footer.png);">
         <div class="auto-container">
             <div class="content-box">
                 <div class="title">
                     <h1>Nuestra Carta</h1>
                 </div>
-                <ul class="bread-crumb clearfix">
-                    <li><a href="/">Inicio</a></li>
-                    <li>Nuestra Carta</li>
-                </ul>
             </div>
         </div>
     </section>
@@ -112,6 +108,39 @@ const title = "Nuestra Carta - Matizes";
 
     <style is:global>
         /* Matizes layout overrides */
+        .page-title {
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: clamp(360px, 65vh, 520px);
+            padding-top: clamp(200px, 28vh, 260px);
+            padding-bottom: clamp(140px, 22vh, 200px);
+        }
+
+        .page-title::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(1, 41, 36, 0.75) 0%, rgba(1, 41, 36, 0.2) 55%, rgba(1, 41, 36, 0) 100%),
+                linear-gradient(90deg, rgba(1, 41, 36, 0.35) 0%, rgba(1, 41, 36, 0) 50%, rgba(1, 41, 36, 0.35) 100%);
+            pointer-events: none;
+        }
+
+        .page-title .content-box {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-title .title h1 {
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            letter-spacing: 0.08em;
+            color: #ffffff;
+            text-shadow: 0 6px 25px rgba(1, 41, 36, 0.65);
+        }
+
         .ourmenu-section .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
@@ -121,7 +150,7 @@ const title = "Nuestra Carta - Matizes";
         .ourmenu-section .single-menu-box {
             position: relative;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 24px;
             padding: 20px 24px;
             border-radius: 28px;
@@ -132,13 +161,13 @@ const title = "Nuestra Carta - Matizes";
         }
 
         .ourmenu-section .single-menu-box .menu-visual {
+            --menu-visual-size: clamp(120px, 26vw, 160px);
             position: relative;
-            width: 130px;
-            min-width: 150px;
+            width: var(--menu-visual-size);
+            height: var(--menu-visual-size);
             flex-shrink: 0;
             display: inline-flex;
             justify-content: center;
-            padding-right: 28px;
             overflow: visible;
         }
 
@@ -146,13 +175,14 @@ const title = "Nuestra Carta - Matizes";
             position: relative;
             left: auto;
             top: auto;
-            width: 130px;
-            height: 130px;
+            width: 100%;
+            height: 100%;
         }
 
         .ourmenu-section .single-menu-box .image-box img {
-            width: 130px;
-            height: 130px;
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 1 / 1;
             object-fit: cover;
             border-radius: 50%;
             transition: transform 0.4s ease, filter 0.4s ease;
@@ -165,8 +195,8 @@ const title = "Nuestra Carta - Matizes";
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 52px;
-            height: 52px;
+            width: clamp(48px, 10vw, 60px);
+            height: clamp(48px, 10vw, 60px);
             border-radius: 50%;
             font-size: 0.85rem;
             font-weight: 700;
@@ -247,8 +277,9 @@ const title = "Nuestra Carta - Matizes";
 
         /* Uniform Menu Cards */
         .single-menu-box .image-box img {
-            width: 130px;
-            height: 130px;
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 1 / 1;
             object-fit: cover;
             border-radius: 50%;
             transition: transform 0.4s ease;
@@ -258,12 +289,5 @@ const title = "Nuestra Carta - Matizes";
             opacity: 1 !important;
         }
         
-        /* Animated titles */
-        .sec-title h2 {
-            transition: transform 0.4s ease;
-        }
-        .sec-title:hover h2 {
-            transform: translateY(-5px);
-        }
     </style>
 </MatizesLayout>

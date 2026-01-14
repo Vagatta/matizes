@@ -14,10 +14,10 @@ import heroImage from '../assets/images/hero/matizes_hero_v3.png';
       <h1 class="hero-title hidden-placeholder" id="hero-title">
         Dulzura que Crea <br /> Momentos Únicos
       </h1>
-      <p class="hero-subtitle" id="hero-subtitle">
+      <p class="hero-subtitle" id="hero-subtitle" style="opacity: 0; transform: translateY(20px);">
         Pastelería artesanal y café de especialidad en un entorno diseñado para inspirar.
       </p>
-      <div class="hero-actions" id="hero-actions">
+      <div class="hero-actions" id="hero-actions" style="opacity: 0; transform: translateY(20px);">
         <a href="/our-menu" class="btn-matizes pistachio">Ver Menú</a>
         <a href="/contact" class="btn-matizes pink">Visítanos</a>
       </div>
@@ -340,9 +340,14 @@ import heroImage from '../assets/images/hero/matizes_hero_v3.png';
         ease: "power2.out"
       });
 
-      gsap.from("#hero-subtitle, #hero-actions", {
-        y: 20,
-        opacity: 0,
+      gsap.set(["#hero-subtitle", "#hero-actions"], {
+        autoAlpha: 0,
+        y: 20
+      });
+
+      gsap.to(["#hero-subtitle", "#hero-actions"], {
+        autoAlpha: 1,
+        y: 0,
         duration: 1.5,
         stagger: 0.2,
         delay: 2.5,
